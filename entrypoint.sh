@@ -27,7 +27,7 @@ if [ -z "$MD_FOLDER" ]; then
   MD_FOLDER='.'
 fi
 
-mkdir $TMP_CLONE_FOLDER
+mkdir -p $TMP_CLONE_FOLDER
 cd $TMP_CLONE_FOLDER
 git init
 git config user.name $ACTION_NAME
@@ -35,6 +35,8 @@ git config user.email $ACTION_MAIL
 git pull https://${GH_PAT}@github.com/$OWNER/$REPO_NAME.wiki.git
 cd ..
 
+pwd
+ls -al
 find $MD_FOLDER -type f | grep -i md$ | xargs -i cp {} $TMP_CLONE_FOLDER
 
 echo "Pushing Wiki Pages"
