@@ -40,7 +40,7 @@ git pull https://${GH_PAT}@github.com/$OWNER/$REPO_NAME.wiki.git
 cd ..
 
 echo "Find files and copy"
-find . -type f | grep -i md$ | xargs -d "\n" -I{} cp -r {} $TMP_CLONE_FOLDER
+find . -type f | grep -i md$ | xargs -d "\n" -I{} cp -r --parents {} $TMP_CLONE_FOLDER
 
 echo "Pushing Wiki Pages"
 cd $TMP_CLONE_FOLDER
