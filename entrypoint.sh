@@ -27,7 +27,6 @@ if [ -z "$MD_FOLDER" ]; then
   MD_FOLDER='.'
 fi
 
-echo "cd $MD_FOLDER"
 cd $MD_FOLDER
 
 mkdir -p $TMP_CLONE_FOLDER
