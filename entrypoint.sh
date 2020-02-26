@@ -27,6 +27,8 @@ if [ -z "$MD_FOLDER" ]; then
   MD_FOLDER='.'
 fi
 
+cd $MD_FOLDER
+
 mkdir -p $TMP_CLONE_FOLDER
 cd $TMP_CLONE_FOLDER
 git init
@@ -35,7 +37,6 @@ git config user.email $ACTION_MAIL
 git pull https://${GH_PAT}@github.com/$OWNER/$REPO_NAME.wiki.git
 cd ..
 
-cd $MD_FOLDER
 find . -type f | grep -i md$
 find . -type f | grep -i md$ | xargs -d "\n" -I{} cp -r {} $TMP_CLONE_FOLDER
 if [ "$MD_FOLDER" != "." ]; then
