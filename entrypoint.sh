@@ -31,7 +31,6 @@ cd $MD_FOLDER
 
 mkdir -p $TMP_CLONE_FOLDER
 cd $TMP_CLONE_FOLDER
-echo "Init git"
 git init
 git config user.name $ACTION_NAME
 git config user.email $ACTION_MAIL
@@ -39,7 +38,7 @@ git pull https://${GH_PAT}@github.com/$OWNER/$REPO_NAME.wiki.git
 cd ..
 
 echo "Find files and copy"
-find . -type f | grep -i md$ | xargs -d "\n" -I{} cp -r --parents {} $TMP_CLONE_FOLDER
+find . -type f | grep -i md$ | grep -v $TMP_CLONE_FOLDER | xargs -d "\n" -I{} cp -r --parents {} $TMP_CLONE_FOLDER
 
 echo "Pushing Wiki Pages"
 cd $TMP_CLONE_FOLDER
