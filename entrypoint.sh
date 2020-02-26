@@ -43,7 +43,9 @@ ls -al $TMP_CLONE_FOLDER
 
 echo "Pushing Wiki Pages"
 cd $TMP_CLONE_FOLDER
+ls -al
 git add .
+git diff
 git commit -m "Pushing Wiki Pages"
 git push --set-upstream https://${GH_PAT}@github.com/$OWNER/$REPO_NAME.wiki.git master
 cd ..
