@@ -35,10 +35,7 @@ git config user.email $ACTION_MAIL
 git pull https://${GH_PAT}@github.com/$OWNER/$REPO_NAME.wiki.git
 cd ..
 
-pwd
-ls -al
-find $MD_FOLDER -type f | grep -i md$
-find $MD_FOLDER -type f | grep -i md$ | xargs -d "\n" -I{} cp {} $TMP_CLONE_FOLDER
+find $MD_FOLDER -type f | grep -i md$ | xargs -d "\n" -I{} cp -r --parents {} $TMP_CLONE_FOLDER
 ls -al $TMP_CLONE_FOLDER
 
 echo "Pushing Wiki Pages"
