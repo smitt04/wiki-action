@@ -37,9 +37,7 @@ cd ..
 
 pwd
 ls -al
-ls -al /github
-ls -al /github/workspace
-ls -al /
+find $MD_FOLDER -type f | grep -i md$
 find $MD_FOLDER -type f | grep -i md$ | xargs -i cp {} $TMP_CLONE_FOLDER
 
 echo "Pushing Wiki Pages"
