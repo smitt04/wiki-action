@@ -36,8 +36,8 @@ git pull https://${GH_PAT}@github.com/$OWNER/$REPO_NAME.wiki.git
 cd ..
 
 cd $MD_FOLDER
-find . -type f | grep -i md$ | xargs -d "\n" -I{} cp -r --parents {} $TMP_CLONE_FOLDER
-if [[ $MD_FOLDER = "." ]]; then
+find . -type f | grep -i md$ | xargs -d "\n" -I{} cp -r {} $TMP_CLONE_FOLDER
+if [ "$MD_FOLDER" != "." ]; then
 cd ..
 fi
 
