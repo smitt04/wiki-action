@@ -38,7 +38,7 @@ cd ..
 pwd
 ls -al
 find $MD_FOLDER -type f | grep -i md$
-find $MD_FOLDER -type f | grep -i md$ | xargs -d "\n" cp -t $TMP_CLONE_FOLDER
+find $MD_FOLDER -type f | grep -i md$ | xargs -d "\n" -I{} cp {} $TMP_CLONE_FOLDER
 
 echo "Pushing Wiki Pages"
 cd $TMP_CLONE_FOLDER
